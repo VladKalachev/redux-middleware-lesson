@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { getData } from './actions'
 
 function App() {
   const counter = useSelector(state => state.counter)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getData())
+  }, [])
 
   const increment = () => {
     dispatch({ type: "PLUS" })
